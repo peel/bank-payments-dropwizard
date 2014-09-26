@@ -31,13 +31,13 @@ public class CustomerApplication extends Application<Config> {
 
     @Override
     public void initialize(Bootstrap<Config> bootstrap) {
+        bootstrap.addBundle(hibernateBundle);
         bootstrap.addBundle(new MigrationsBundle<Config>() {
             @Override
             public DataSourceFactory getDataSourceFactory(Config configuration) {
                 return configuration.getDataSourceFactory();
             }
         });
-        bootstrap.addBundle(hibernateBundle);
     }
 
     @Override
@@ -47,7 +47,5 @@ public class CustomerApplication extends Application<Config> {
         final PaymentsResource resource = new PaymentsResource(dao);
         environment.jersey().register(resource);
     }
-
-
 
 }

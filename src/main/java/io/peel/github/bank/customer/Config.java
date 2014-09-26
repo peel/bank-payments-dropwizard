@@ -17,6 +17,7 @@ public class Config extends Configuration {
 
     @Valid
     @NotNull
+    @JsonProperty("database")
     private DataSourceFactory database = new DataSourceFactory();
 
     @JsonProperty
@@ -39,12 +40,10 @@ public class Config extends Configuration {
         this.defaultName = name;
     }
 
-    @JsonProperty("database")
     public DataSourceFactory getDataSourceFactory() {
         return database;
     }
 
-    @JsonProperty("database")
     public void setDataSourceFactory(DataSourceFactory dataSourceFactory) {
         this.database = dataSourceFactory;
     }
