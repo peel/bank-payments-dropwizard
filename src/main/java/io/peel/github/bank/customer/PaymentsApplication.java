@@ -11,14 +11,14 @@ import io.peel.github.bank.customer.core.Payment;
 import io.peel.github.bank.customer.db.PaymentDAO;
 import io.peel.github.bank.customer.resources.PaymentsResource;
 
-public class CustomerApplication extends Application<Config> {
+public class PaymentsApplication extends Application<Config> {
     public static void main(String[] args) throws Exception {
-        new CustomerApplication().run(args);
+        new PaymentsApplication().run(args);
     }
 
     @Override
     public String getName() {
-        return "hello-world";
+        return "payments";
     }
 
     private final HibernateBundle<Config> hibernateBundle =

@@ -11,7 +11,13 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="content" type="varchar(255)">
+            <column name="debit" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="credit" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.Entity;
 import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
-import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Table;
 
@@ -19,16 +18,21 @@ import javax.persistence.Table;
 public class Payment {
     private long id;
 
-    @Length(max = 3)
-    private String content;
+    private String debit;
+    private String credit;
+    private String amount;
+    private String title;
 
     public Payment() {
         // Jackson deserialization
     }
 
-    public Payment(long id, String content) {
+    public Payment(long id, String debit, String credit, String amount, String title) {
         this.id = id;
-        this.content = content;
+        this.amount = amount;
+        this.debit = debit;
+        this.credit = credit;
+        this.title = title;
     }
 
     @JsonProperty
@@ -37,7 +41,23 @@ public class Payment {
     }
 
     @JsonProperty
-    public String getContent() {
-        return content;
+    public String getAmount() {
+        return amount;
     }
+
+    @JsonProperty
+    public String getCredit() {
+        return credit;
+    }
+
+    @JsonProperty
+    public String getDebit() {
+        return debit;
+    }
+
+    @JsonProperty
+    public String getTitle() {
+        return title;
+    }
+
 }
