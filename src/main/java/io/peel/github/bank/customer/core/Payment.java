@@ -16,6 +16,10 @@ import javax.persistence.Table;
         )
 })
 public class Payment {
+    public void setId(long id) {
+        this.id = id;
+    }
+
     private long id;
 
     private String debit;
@@ -23,16 +27,24 @@ public class Payment {
     private String amount;
     private String title;
 
+    @JsonProperty
+    public String getDate() {
+        return date;
+    }
+
+    private String date;
+
     public Payment() {
         // Jackson deserialization
     }
 
-    public Payment(long id, String debit, String credit, String amount, String title) {
+    public Payment(long id, String debit, String credit, String amount, String title, String date) {
         this.id = id;
         this.amount = amount;
         this.debit = debit;
         this.credit = credit;
         this.title = title;
+        this.date = date;
     }
 
     @JsonProperty
